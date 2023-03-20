@@ -1,3 +1,5 @@
+from math import cos, pi
+from random import uniform
 # Determine Andromeda location in ra/dec degrees
 
 # from wikipedia
@@ -5,8 +7,6 @@ RA = '00:42:44.3'
 DEC = '41:16:09'
 
 # convert to decimal degrees
-from math import cos, pi
-
 D, M, S = DEC.split(':')
 DEC = int(D)+int(M)/60+float(S)/3600
 
@@ -17,7 +17,6 @@ RA = RA/cos(DEC*pi/180)
 NSRC = 1_000_000
 
 # make 1000 stars within 1 degree of Andromeda
-from random import uniform
 RAS = []
 DECS = []
 for i in range(NSRC):
