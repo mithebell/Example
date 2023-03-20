@@ -1,5 +1,8 @@
-from math import cos, pi
-from random import uniform
+"""
+A script to simulate a population of stars around the Andromeda galaxy
+"""
+import math
+import random
 # Determine Andromeda location in ra/dec degrees
 
 # from wikipedia
@@ -12,7 +15,7 @@ DEC = int(D)+int(M)/60+float(S)/3600
 
 H, M, S = RA.split(':')
 RA = 15*(int(H)+int(M)/60+float(S)/3600)
-RA = RA/cos(DEC*pi/180)
+RA = RA/math.cos(DEC*math.pi/180)
 
 NSRC = 1_000_000
 
@@ -20,8 +23,8 @@ NSRC = 1_000_000
 RAS = []
 DECS = []
 for i in range(NSRC):
-    RAS.append(RA + uniform(-1, 1))
-    DECS.append(DEC + uniform(-1, 1))
+    RAS.append(RA + random.uniform(-1, 1))
+    DECS.append(DEC + random.uniform(-1, 1))
 
 
 # now write these to a csv file for use by my other program
