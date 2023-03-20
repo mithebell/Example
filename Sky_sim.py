@@ -7,11 +7,11 @@ DEC = '41:16:09'
 # convert to decimal degrees
 from math import cos, pi
 
-d, m, s = DEC.split(':')
-DEC = int(d)+int(m)/60+float(s)/3600
+D, M, S = DEC.split(':')
+DEC = int(D)+int(M)/60+float(S)/3600
 
-h, m, s = RA.split(':')
-RA = 15*(int(h)+int(m)/60+float(s)/3600)
+H, M, S = RA.split(':')
+RA = 15*(int(H)+int(M)/60+float(S)/3600)
 RA = RA/cos(DEC*pi/180)
 
 NSRC = 1_000_000
@@ -26,7 +26,7 @@ for i in range(NSRC):
 
 
 # now write these to a csv file for use by my other program
-f = open('catalog.csv', 'w', encoding='utf-8')
-print("id,ra,dec", file=f)
+F = open('catalog.csv', 'w', encoding='utf-8')
+print("id,ra,dec", file=F)
 for i in range(NSRC):
-    print("{0:07d}, {1:12f}, {2:12f}".format(i, RAS[i], DECS[i]), file=f)
+    print("{0:07d}, {1:12f}, {2:12f}".format(i, RAS[i], DECS[i]), file=F)
