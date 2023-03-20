@@ -25,7 +25,7 @@ for i in range(NSRC):
 
 
 # now write these to a csv file for use by my other program
-F = open('catalog.csv', 'w', encoding='utf-8')
-print("id,ra,dec", file=F)
-for i in range(NSRC):
-    print("{0:07d}, {1:12f}, {2:12f}".format(i, RAS[i], DECS[i]), file=F)
+with open('catalog.csv', 'w', encoding='utf-8') as F:
+    print("id,ra,dec", file=F)
+    for i in range(NSRC):
+        print(f"{i:07d}, {RAS[i]:12f}, {DECS[i]:12f}", file=F)
