@@ -21,12 +21,12 @@ from random import uniform
 RAS = []
 DECS = []
 for i in range(NSRC):
-    RAS.append(RA + uniform(-1,1))
-    DECS.append(DEC + uniform(-1,1))
+    RAS.append(RA + uniform(-1, 1))
+    DECS.append(DEC + uniform(-1, 1))
 
 
 # now write these to a csv file for use by my other program
-f = open('catalog.csv','w', 'utf8')
+f = open('catalog.csv', 'w', encoding='utf-8')
 print("id,ra,dec", file=f)
 for i in range(NSRC):
     print("{0:07d}, {1:12f}, {2:12f}".format(i, RAS[i], DECS[i]), file=f)
