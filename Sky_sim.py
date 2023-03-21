@@ -8,6 +8,7 @@ import random
 def get_radec():
     """
     Determine Andromeda location in ra/dec degrees
+    Converts RA and DEC from hexadecimal to decimal
     """
     # from wikipedia
     RA = '00:42:44.3'
